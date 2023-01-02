@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Sản Phẩm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <style>
+           tr td{
+                max-width: 200px;
+                word-wrap: break-word;
+            }
+            .btn{
+                margin-bottom: 10px;
+            }
+        </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="#">PRODUCTS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" href="#DanhSachSP" role="tab" data-toggle="tab">Danh sách sản phẩm</a>
+        </li>
+
+    </ul>
+    <br />
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane  in active" id="DanhSachSP">
+            <div class="row mx-5">
+                <div class="col-md-8 ">
+                    <button id="btnThemSP" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus mr-1"></i>
+                        Thêm Mới
+                    </button>
+                </div>
+               
+            </div>
+            <div class="clear-fix"></div>
+
+            <br />
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" onclick="resetForm()" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <form action="" id="formProduct">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Tên Sản Phẩm</label>
+                            <input id="nameProduct" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+                            <span class="sp-thongbao text-danger" id="tbName"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Giá</label>
+                            <input id="priceProduct" class="form-control" placeholder="Nhập vào giá" />
+                            <span class="sp-thongbao text-danger" id="tbPrice"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Màng Hình</label>
+                            <input id="screenProduct" class="form-control"
+                                placeholder="Nhập vào kích thước màng hình" />
+                            <span class="sp-thongbao text-danger" id="tbScreen"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Camera Sau</label>
+                            <input id="backCameraProduct" class="form-control"
+                                placeholder="Nhập vào kích thước camera sau" />
+                            <span class="sp-thongbao text-danger" id="tbBackCam"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Camera Trước</label>
+                            <input id="frontCameraProduct" class="form-control"
+                                placeholder="Nhập vào kích thước camera trước" />
+                            <span class="sp-thongbao text-danger" id="tbFrontCam"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Hình Ảnh </label>
+                            <input id="imgProduct" class="form-control" placeholder="Nhập vào hình ảnh sản phẩm" />
+                            <span class="sp-thongbao text-danger" id="tbImg"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea id="descProduct" class="form-control" cols="30" rows="3"
+                                placeholder="Nhập vào mô tả"></textarea>
+                            <span class="sp-thongbao text-danger" id="tbDesc"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">                       
+                                <select class="custom-select" class="form-control" id="typeProduct">
+                                    <option selected>Chọn Hãng</option>
+                                    <option>Iphone</option>
+                                    <option>SamSung</option>
+                                </select>
+                            </div>
+                            <span class="sp-thongbao text-danger" id="tbType"></span>
+                        </div>               
+                    </div>
+                </form>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fulid">
+        <div class="tblSanPham mx-5" id="tblSanPham">
+            <table class="table table-bordered">
+                <thead>
+                    <th>STT</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá</th>
+                    <th>Màng Hình</th>
+                    <th>Camera Sau</th>
+                    <th>Camera Trước</th>
+                    <th>Hình Ảnh</th>
+                    <th>Mô Tả</th>
+                    <th>Thương Hiệu</th>
+                    <th>Action</th>
+
+                </thead>
+                <tbody id="productLists"></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="container"></div>
+    <style>
+        #container {
+            min-width: 310px;
+            max-width: 800px;
+            height: 400px;
+            margin: 0 auto;
+        }
+    </style>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="../services/ProductServices.js"></script>
+    <script src="../models/Products.js"></script>
+    <script src="../controllers/validation.js"></script>
+
+    <script src="../controllers/main.js"></script>
+</body>
+
+</html>
